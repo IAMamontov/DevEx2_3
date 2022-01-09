@@ -1,0 +1,24 @@
+#treeList {
+  //height: 500px;
+  padding: 1px;
+}
+::ng-deep .disaster {
+  //background-color: #E45959;
+  padding: 1px;
+}
+::ng-deep .high {
+  padding: 1px 1px;
+  //background-color: #E97659;
+}
+::ng-deep .average {
+  background-color: #FFA059;
+}
+::ng-deep .warning {
+  background-color: #FFC859;
+}
+::ng-deep .information {
+  background-color: #7499FF;
+}
+::ng-deep .notclassified {
+  background-color: #97AAB3;
+}

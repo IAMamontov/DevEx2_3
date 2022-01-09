@@ -1,0 +1,87 @@
+<h2 class="content-block">Абоненты</h2>
+<div class="content-block">
+  <dx-tree-list
+    [dataSource]="hosts"
+    [rootValue]="-1"
+    keyExpr="ID"
+    parentIdExpr="HeadID"
+    [autoExpandAll]="false"
+    [allowColumnResizing]="true"
+    [columnAutoWidth]="true">
+    <dxo-filter-row [visible]="false"></dxo-filter-row>
+    <dxo-search-panel [visible]="true"
+                      placeholder="Поиск"></dxo-search-panel>
+    <dxi-column dataField="ItemID"
+                [visible]="false"></dxi-column>
+    <dxi-column dataField="ID"
+                [visible]="false"></dxi-column>
+    <dxi-column dataField="HeadID"
+                [visible]="false"></dxi-column>
+    <dxi-column dataField="HostName"
+                caption="Имя Абонента"
+                [visible]="true"></dxi-column>
+    <dxi-column dataField="Disaster"
+                caption="Критич"
+                [visible]="true"
+                cellTemplate="DisasterTemplate"></dxi-column>
+    <dxi-column dataField="High"
+                caption="Высокая"
+                [visible]="true"
+                cellTemplate="HighTemplate"></dxi-column>
+    <dxi-column dataField="Average"
+                caption="Средняя"
+                [visible]="true"
+                cellTemplate="AverageTemplate"></dxi-column>
+    <dxi-column dataField="Warning"
+                caption="Предупреждение"
+                [visible]="true"
+                cellTemplate="WarningTemplate"></dxi-column>
+    <dxi-column dataField="Information"
+                caption="Информация"
+                [visible]="true"
+                cellTemplate="InformationTemplate"></dxi-column>
+    <dxi-column dataField="NotClassified"
+                caption="Неопределенная"
+                [visible]="true"
+                cellTemplate="NotClassifiedTemplate"></dxi-column>
+    <div *dxTemplate="let cell of 'cellTemplate'">
+      <div style="color:blue">{{ cell.text }}</div>
+    </div>
+    <div *dxTemplate="let cell of 'DisasterTemplate'">
+      <div
+        *ngIf="cell.data.Disaster > 0"
+        style="background-color: #E45959">{{ cell.text }}</div>
+    </div>
+    <div *dxTemplate="let cell of 'HighTemplate'">
+      <div
+        *ngIf="cell.data.High > 0"
+        style="background-color: #E97659">{{ cell.text }}</div>
+    </div>
+    <div *dxTemplate="let cell of 'AverageTemplate'">
+      <div
+        *ngIf="cell.data.Average > 0"
+        style="background-color: #FFA059">{{ cell.text }}</div>
+    </div>
+    <div *dxTemplate="let cell of 'WarningTemplate'">
+      <div
+        *ngIf="cell.data.Warning > 0"
+        style="background-color: #FFC859">{{ cell.text }}</div>
+    </div>
+    <div *dxTemplate="let cell of 'InformationTemplate'">
+      <div
+        *ngIf="cell.data.Information > 0"
+        style="background-color: #7499FF">{{ cell.text }}</div>
+    </div>
+    <div *dxTemplate="let cell of 'NotClassifiedTemplate'">
+      <div
+        *ngIf="cell.data.NotClassified > 0"
+        style="background-color: #97AAB3">{{ cell.text }}</div>
+    </div>
+
+
+
+
+
+  </dx-tree-list>
+<!--    <div class="dx-card responsive-paddings">Put your content here</div>-->
+</div>
